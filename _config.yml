@@ -86,7 +86,7 @@ author:
   name             : "Tristan Nemoz"
   avatar           : "/assets/images/profile.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "I am a third-year engineering student at [Télécom Paris](https://www.telecom-paris.fr/en/home), having done my second engineering year at [Eurecom](https://eurecom.fr/en), and my third one at the [Imperial College London](https://imperial.ac.uk). I am looking forward to pursuing my studies by doing a PhD in Quantum Computing. I am passionate about Cryptography, Quantum Computing and Machine Learning. Yeah, math is fun."
-  location         : "Besançon, France"
+  location         :
   email            :
   links:
     - label: "Email"

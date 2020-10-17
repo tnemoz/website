@@ -1,0 +1,11 @@
+# main links
+main:
+  - title: "Blog"
+    url: /blog
+    description: "Articles I've written"
+  - title: "Publications"
+    url: /publications
+    description: "Published papers I've worked on"
+  - title: "CV"
+    url: /cv
+    description: "My résumé"

@@ -42,11 +42,6 @@ layout: default
         {% endif %}
         {{ content }}
 
-	<nav class="pagination">
-		<a href={% if page.number == 1 %}"#"{% else %}{{"/" | append: page.category | append: "/" | append: page.previous_post }}{% endif %} class={% if page.number == 1 %}"pagination--pager disabled"{% else %}"pagination--pager"{% endif %}>{{ site.data.ui-text[site.locale].pagination_previous }}</a>
-		<a href={% if page.number == site.series[page.category].posts_number %}"#"{% else %}{{"/" | append: page.category | append: "/" | append: page.next_post }}{% endif %} class={% if page.number == site.series[page.category].posts_number %}"pagination--pager disabled"{% else %}"pagination--pager"{% endif %}>{{ site.data.ui-text[site.locale].pagination_next }}</a>
-	</nav>
-
       </section>
 
       <footer class="page__meta">
@@ -59,7 +54,11 @@ layout: default
 
       {% if page.share %}{% include social-share.html %}{% endif %}
 
-      {% include post_pagination.html %}
+	<nav class="pagination">
+		<a href={% if page.number == 1 %}"#"{% else %}{{"/" | append: page.category | append: "/" | append: page.previous_post }}{% endif %} class={% if page.number == 1 %}"pagination--pager disabled"{% else %}"pagination--pager"{% endif %}>{{ site.data.ui-text[site.locale].pagination_previous }}</a>
+		<a href={% if page.number == site.series[page.category].posts_number %}"#"{% else %}{{"/" | append: page.category | append: "/" | append: page.next_post }}{% endif %} class={% if page.number == site.series[page.category].posts_number %}"pagination--pager disabled"{% else %}"pagination--pager"{% endif %}>{{ site.data.ui-text[site.locale].pagination_next }}</a>
+	</nav>
+
     </div>
 
     {% if jekyll.environment == 'production' and site.comments.provider and page.comments %}

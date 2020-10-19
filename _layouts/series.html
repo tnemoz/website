@@ -41,11 +41,12 @@ layout: default
           </aside>
         {% endif %}
         {{ content }}
-	{% if page.number > 1  %}
-	{% endif %}
-	{% if page.number == site.series[page.category].posts_number %}
-	{% endif  %}
-        {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
+
+	<nav class="pagination">
+		<a href={% if page.number == 1 %}"#"{% else %}{{"/" | append: page.category | append: "/" | append: page.previous_post }}{% endif %} class={% if page.number == 1 %}"pagination--pager disabled"{% else %}"pagination--pager"{% endif %}>{{ site.data.ui-text[site.locale].pagination_previous }}</a>
+		<a href={% if page.number == site.series[page.category].posts_number %}"#"{% else %}{{"/" | append: page.category | append: "/" | append: page.next_post }}{% endif %} class={% if page.number == site.series[page.category].posts_number %}"pagination--pager disabled"{% else %}"pagination--pager"{% endif %}>{{ site.data.ui-text[site.locale].pagination_next }}</a>
+	</nav>
+
       </section>
 
       <footer class="page__meta">

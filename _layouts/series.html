@@ -54,9 +54,11 @@ layout: default
 
       {% if page.share %}{% include social-share.html %}{% endif %}
 
+	{% assign category_posts_number = site.posts | where: "category", page.category | size %}
+	
 	<nav class="pagination">
-		<a href={% if page.number == 1 %}"#"{% else %}{{"/" | append: page.category | append: "/" | append: page.previous_post }}{% endif %} class={% if page.number == 1 %}"pagination--pager disabled"{% else %}"pagination--pager"{% endif %}>{{ site.data.ui-text[site.locale].pagination_previous }}</a>
-		<a href={% if page.number == site.series[page.category].posts_number %}"#"{% else %}{{"/" | append: page.category | append: "/" | append: page.next_post }}{% endif %} class={% if page.number == site.series[page.category].posts_number %}"pagination--pager disabled"{% else %}"pagination--pager"{% endif %}>{{ site.data.ui-text[site.locale].pagination_next }}</a>
+		<a href={% if page.number == 1 %}"#"{% else %}{% assign previous_number = page.number | minus: 1 %}{% assign previous_post = site.posts | where: "category", page.category | where: "number", previous_number %}{{ previous_post[0].url }}{% endif %} class={% if page.number == 1 %}"pagination--pager disabled"{% else %}"pagination--pager"{% endif %}>{{ site.data.ui-text[site.locale].pagination_previous }}</a>
+		<a href={% if page.number == category_posts_number %}"#"{% else %}{% assign next_number = page.number | plus: 1 %}{% assign next_post = site.posts | where: "category", page.category | where: "number", next_number %}{{ next_post[0].url }}{% endif %} class={% if page.number == category_posts_number %}"pagination--pager disabled"{% else %}"pagination--pager"{% endif %}>{{ site.data.ui-text[site.locale].pagination_next }}</a>
 	</nav>
 
     </div>

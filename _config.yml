@@ -260,10 +260,3 @@ defaults:
       comments: false
       share: true
       related: true
-
-# Series-related variables
-series:
-  dedicated:
-    posts_number: 1
-  flyclient:
-    posts_number: 0
